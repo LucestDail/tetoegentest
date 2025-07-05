@@ -1,0 +1,532 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.screen {
+    display: none;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.screen.active {
+    display: block;
+}
+
+/* 시작 화면 */
+.content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #4a5568;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #718096;
+    margin-bottom: 40px;
+}
+
+.gender-selection h3 {
+    font-size: 1.5rem;
+    color: #4a5568;
+    margin-bottom: 30px;
+}
+
+.gender-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gender-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.gender-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* 테스트 화면 */
+.progress-container {
+    margin-bottom: 40px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+    width: 8.33%;
+}
+
+.progress-text {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 500;
+}
+
+.question-container h2 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 15px 20px;
+    font-size: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    background: white;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 400;
+}
+
+.option-btn:hover {
+    border-color: #667eea;
+    background: #f7fafc;
+    transform: translateY(-1px);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+}
+
+/* 결과 화면 */
+.result-content {
+    text-align: left;
+}
+
+.result-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.result-header h2 {
+    font-size: 2rem;
+    color: #4a5568;
+    margin-bottom: 30px;
+}
+
+.result-type h3 {
+    font-size: 1.8rem;
+    color: #667eea;
+    margin-bottom: 20px;
+}
+
+/* 종합 점수 */
+.overall-scores {
+    margin-bottom: 40px;
+    background: #f7fafc;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.overall-scores h4 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.scores {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.score-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.score-label {
+    min-width: 100px;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.score-bar {
+    flex: 1;
+    height: 15px;
+    background: #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.score-fill {
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 8px;
+    transition: width 0.8s ease;
+}
+
+.score-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 150px;
+}
+
+.score-percent {
+    font-weight: 700;
+    color: #667eea;
+    font-size: 1.1rem;
+    min-width: 60px;
+}
+
+/* 강도 배지 */
+.strength-badge {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    min-width: 80px;
+}
+
+.strength-badge.very-strong {
+    background: #e53e3e;
+}
+
+.strength-badge.strong {
+    background: #dd6b20;
+}
+
+.strength-badge.moderate {
+    background: #d69e2e;
+}
+
+.strength-badge.weak {
+    background: #38a169;
+}
+
+.strength-badge.very-weak {
+    background: #2b6cb0;
+}
+
+/* 성격 해석 */
+.result-description {
+    background: #f7fafc;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.result-description h4 {
+    font-size: 1.3rem;
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+.result-description p {
+    line-height: 1.8;
+    color: #4a5568;
+    font-size: 1.05rem;
+}
+
+/* 상세 분석 */
+.analysis-section {
+    margin-bottom: 40px;
+}
+
+.analysis-section h4 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.analysis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.analysis-card {
+    background: #f7fafc;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 4px solid #667eea;
+}
+
+.analysis-card h5 {
+    font-size: 1.2rem;
+    color: #4a5568;
+    margin-bottom: 15px;
+}
+
+.score-detail, .strength-detail {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+.top-traits h6 {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.top-traits ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.top-traits li {
+    padding: 5px 0;
+    font-size: 0.9rem;
+    color: #4a5568;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* 성격 특징 */
+.characteristics-section {
+    margin-bottom: 40px;
+}
+
+.characteristics-section h4 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.characteristics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.characteristic-item {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 3px solid #667eea;
+    font-size: 1rem;
+    color: #4a5568;
+}
+
+/* 질문별 상세 점수 */
+.question-details-section {
+    margin-bottom: 40px;
+}
+
+.question-details-section h4 {
+    font-size: 1.4rem;
+    color: #4a5568;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.question-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-detail-item {
+    display: flex;
+    gap: 15px;
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 10px;
+    align-items: flex-start;
+}
+
+.question-number {
+    background: #667eea;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.question-content {
+    flex: 1;
+}
+
+.question-text {
+    font-size: 1rem;
+    color: #4a5568;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.question-scores {
+    display: flex;
+    gap: 20px;
+}
+
+.score {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.score.teto-score {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.score.egen-score {
+    background: #c6f6d5;
+    color: #2f855a;
+}
+
+/* 다시 테스트하기 */
+.restart-section {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.restart-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.restart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        max-width: 100%;
+    }
+    
+    .screen {
+        padding: 30px 20px;
+    }
+    
+    .content h1 {
+        font-size: 2rem;
+    }
+    
+    .gender-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .options {
+        gap: 12px;
+    }
+    
+    .option-btn {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+    
+    .analysis-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .characteristics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .question-detail-item {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .question-scores {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .score-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .score-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .score-label {
+        min-width: auto;
+    }
+} 

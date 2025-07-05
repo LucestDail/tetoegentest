@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테토/에겐 심리 테스트</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 시작 화면 -->
+        <div id="start-screen" class="screen active">
+            <div class="content">
+                <h1>테토/에겐 심리 테스트</h1>
+                <p class="subtitle">당신의 성향을 알아보세요</p>
+                <div class="gender-selection">
+                    <h3>성별을 선택해주세요</h3>
+                    <div class="gender-buttons">
+                        <button class="gender-btn" data-gender="male">남성</button>
+                        <button class="gender-btn" data-gender="female">여성</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 테스트 화면 -->
+        <div id="test-screen" class="screen">
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">1 / 12</span>
+            </div>
+            
+            <div class="question-container">
+                <h2 id="question-text"></h2>
+                <div class="options">
+                    <button class="option-btn" data-value="1">전혀 그렇지 않다</button>
+                    <button class="option-btn" data-value="2">그렇지 않다</button>
+                    <button class="option-btn" data-value="3">보통이다</button>
+                    <button class="option-btn" data-value="4">그렇다</button>
+                    <button class="option-btn" data-value="5">매우 그렇다</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 결과 화면 -->
+        <div id="result-screen" class="screen">
+            <div class="result-content">
+                <!-- 결과 헤더 -->
+                <div class="result-header">
+                    <h2>🧠 테토/에겐 심리 테스트 결과 보고서</h2>
+                    <div class="result-type">
+                        <h3 id="result-title"></h3>
+                    </div>
+                </div>
+                
+                <!-- 종합 점수 -->
+                <div class="overall-scores">
+                    <h4>📈 종합 점수</h4>
+                    <div class="scores">
+                        <div class="score-item">
+                            <span class="score-label">테토 성향</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="teto-score"></div>
+                            </div>
+                            <div class="score-info">
+                                <span class="score-percent" id="teto-percent">0%</span>
+                                <span class="strength-badge" id="teto-strength">보통</span>
+                            </div>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">에겐 성향</span>
+                            <div class="score-bar">
+                                <div class="score-fill" id="egen-score"></div>
+                            </div>
+                            <div class="score-info">
+                                <span class="score-percent" id="egen-percent">0%</span>
+                                <span class="strength-badge" id="egen-strength">보통</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 성격 해석 -->
+                <div class="result-description">
+                    <h4>💡 성격 해석</h4>
+                    <p id="result-description"></p>
+                </div>
+                
+                <!-- 상세 분석 -->
+                <div id="detailed-analysis"></div>
+                
+                <!-- 다시 테스트하기 -->
+                <div class="restart-section">
+                    <button id="restart-btn" class="restart-btn">다시 테스트하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
